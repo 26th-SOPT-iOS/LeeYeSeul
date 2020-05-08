@@ -15,7 +15,6 @@
 		B8E8235C244ACD02004F5072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E8235A244ACD02004F5072 /* LaunchScreen.storyboard */; };
 		B8E82367244ACD03004F5072 /* iOS_FirstWeek_Assignment_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E82366244ACD03004F5072 /* iOS_FirstWeek_Assignment_2Tests.swift */; };
 		B8E82372244ACD03004F5072 /* iOS_FirstWeek_Assignment_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E82371244ACD03004F5072 /* iOS_FirstWeek_Assignment_2UITests.swift */; };
-		B8E82380244ACDF9004F5072 /* KakaoTalk_Photo_2020-04-18-14-52-15.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E8237F244ACDF9004F5072 /* KakaoTalk_Photo_2020-04-18-14-52-15.png */; };
 		B8E82382244AF196004F5072 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E82381244AF196004F5072 /* FirstViewController.swift */; };
 		B8E82384244AF1EC004F5072 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E82383244AF1EC004F5072 /* SignUpViewController.swift */; };
 		B8E82386244AF23D004F5072 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E82385244AF23D004F5072 /* LogOutViewController.swift */; };
@@ -53,7 +52,6 @@
 		B8E8236D244ACD03004F5072 /* iOS_FirstWeek_Assignment_2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_FirstWeek_Assignment_2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E82371244ACD03004F5072 /* iOS_FirstWeek_Assignment_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_FirstWeek_Assignment_2UITests.swift; sourceTree = "<group>"; };
 		B8E82373244ACD03004F5072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8E8237F244ACDF9004F5072 /* KakaoTalk_Photo_2020-04-18-14-52-15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KakaoTalk_Photo_2020-04-18-14-52-15.png"; sourceTree = SOURCE_ROOT; };
 		B8E82381244AF196004F5072 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		B8E82383244AF1EC004F5072 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B8E82385244AF23D004F5072 /* LogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				B8E82353244ACCFE004F5072 /* ViewController.swift */,
 				B8E82355244ACCFE004F5072 /* Main.storyboard */,
 				B8E82358244ACD02004F5072 /* Assets.xcassets */,
-				B8E8237F244ACDF9004F5072 /* KakaoTalk_Photo_2020-04-18-14-52-15.png */,
 				B8E8235A244ACD02004F5072 /* LaunchScreen.storyboard */,
 				B8E8235D244ACD02004F5072 /* Info.plist */,
 				B8E82381244AF196004F5072 /* FirstViewController.swift */,
@@ -245,7 +242,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E8235C244ACD02004F5072 /* LaunchScreen.storyboard in Resources */,
-				B8E82380244ACDF9004F5072 /* KakaoTalk_Photo_2020-04-18-14-52-15.png in Resources */,
 				B8E82359244ACD02004F5072 /* Assets.xcassets in Resources */,
 				B8E82357244ACCFE004F5072 /* Main.storyboard in Resources */,
 			);

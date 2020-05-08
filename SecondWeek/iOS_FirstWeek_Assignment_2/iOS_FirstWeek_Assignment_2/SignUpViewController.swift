@@ -40,6 +40,7 @@ class SignUpViewController: UIViewController {
         }
             idTextField.text = ""
             pwTextField.text = ""
+     
     }
     
     /*
