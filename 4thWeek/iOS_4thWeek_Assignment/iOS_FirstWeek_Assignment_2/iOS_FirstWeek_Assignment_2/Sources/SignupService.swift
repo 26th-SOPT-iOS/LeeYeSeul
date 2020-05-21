@@ -44,7 +44,11 @@ struct SignupService {
         let decoder = JSONDecoder()
         guard let decodeData = try? decoder.decode(SigninData.self, from: data) else
         {return .pathErr}
-        guard let tokenData = decodeData.data else {return .requestErr(decodeData.message)}
-        return .success(tokenData.jwt)
+        if decodeData.success == true{
+            return .success(decodeData.success)
+        }
+        else{
+            return .requestErr(decodeData.message)
+        }
     }
 }
