@@ -21,6 +21,7 @@ class FriendsViewController: UIViewController {
         settingController.addAction(friendSetting)
         settingController.addAction(generalSetting)
         settingController.addAction(cancelButton)
+        
         self.present(settingController,animated:true,completion:nil)
     }
    

@@ -80,11 +80,20 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsK-1D-mKp">
-                                <rect key="frame" x="57.5" y="427" width="299" height="15"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsK-1D-mKp" customClass="BEMCheckBox">
+                                <rect key="frame" x="59.5" y="430" width="295" height="15"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="자동로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v0-fp-mat">
+                                        <rect key="frame" x="21" y="-1" width="61" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="DAf-sa-ow8"/>
-                                    <constraint firstAttribute="width" constant="299" id="OHE-fS-7e4"/>
+                                    <constraint firstAttribute="width" constant="295" id="OHE-fS-7e4"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -101,13 +110,13 @@
                             <constraint firstItem="IXg-VC-PBT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dZN-ce-bPj"/>
                             <constraint firstItem="TU5-U1-Dvg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fiM-pD-COA"/>
                             <constraint firstItem="IXg-VC-PBT" firstAttribute="top" secondItem="Fef-ER-3LW" secondAttribute="bottom" constant="18" id="gR7-5l-2af"/>
-                            <constraint firstItem="vsK-1D-mKp" firstAttribute="top" secondItem="IXg-VC-PBT" secondAttribute="bottom" constant="7" id="ve3-Je-RrL"/>
+                            <constraint firstItem="vsK-1D-mKp" firstAttribute="top" secondItem="IXg-VC-PBT" secondAttribute="bottom" constant="10" id="ve3-Je-RrL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cx6-Et-Z6v"/>
                     <connections>
-                        <outlet property="checkBoxView" destination="vsK-1D-mKp" id="QXl-Qt-61t"/>
+                        <outlet property="checkBox" destination="vsK-1D-mKp" id="m1q-C0-YuI"/>
                         <outlet property="idTextField" destination="Fef-ER-3LW" id="TfM-dV-1Sm"/>
                         <outlet property="logIn" destination="TU5-U1-Dvg" id="uQW-zb-6zG"/>
                         <outlet property="passwordTextField" destination="IXg-VC-PBT" id="ixy-DH-QWQ"/>
@@ -395,6 +404,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uq9-KR-MqV">
+                                                <rect key="frame" x="303" y="19" width="48" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Logout">
+                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logout:" destination="JZP-P5-QwC" eventType="touchUpInside" id="lZ7-J4-ITW"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>

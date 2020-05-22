@@ -13,42 +13,81 @@ class FirstViewController: UIViewController {
     var id:String?
     var pwd:String?
     var flag:Bool = false
-    @IBOutlet weak var checkBoxView: UIView!
-    let checkBox = BEMCheckBox.init(frame: CGRect.init(x: 30, y: 200, width: 20, height: 10))
-    
-    
-    
+
+    @IBOutlet weak var checkBox: BEMCheckBox!
+    private func doLogin(){
+        guard let inputID = idTextField.text else { return }
+        guard let inputPWD = passwordTextField.text else { return }
+        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+            switch networkResult {
+            case .success(let token):
+                self.id = inputID
+                self.pwd = inputPWD
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                    "customTabbarController") as? UITabBarController else { return }
+                tabbarController.modalPresentationStyle = .fullScreen
+                self.present(tabbarController, animated: true, completion: nil)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail") }
+
+        }
+    }
+    private func autoLogin(){
+        guard let inputID = idTextField.text else { return }
+        guard let inputPWD = passwordTextField.text else { return }
+        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+            switch networkResult {
+            case .success(let token):
+                self.id = inputID
+                self.pwd = inputPWD
+                guard let token = token as? String else { return }
+                UserDefaults.standard.set(token, forKey: "token")
+                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                    "customTabbarController") as? UITabBarController else { return }
+                tabbarController.modalPresentationStyle = .fullScreen
+                
+                self.present(tabbarController, animated: true, completion: nil)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail") }
+
+        }
+    }
     private func setTextfield(){
         idTextField.text = id
         passwordTextField.text = pwd
     }
     @IBOutlet weak var logIn: UIButton! //로그인버튼 outlet
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let ID = UserDefaults.standard.string(forKey: "id"){
+            if let Password = UserDefaults.standard.string(forKey: "pwd"){
+                idTextField.text=ID
+                passwordTextField.text = Password
+                autoLogin()
+            }
+        }
         if (flag==true){
             setTextfield()
-            guard let inputID = idTextField.text else { return }
-            guard let inputPWD = passwordTextField.text else { return }
-            LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
-                switch networkResult {
-                case .success(let token):
-                    guard let token = token as? String else { return }
-                    UserDefaults.standard.set(token, forKey: "token")
-                    guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-                        "customTabbarController") as? UITabBarController else { return }
-                    tabbarController.modalPresentationStyle = .fullScreen
-                    self.present(tabbarController, animated: true, completion: nil)
-                case .requestErr(let message):
-                    guard let message = message as? String else { return }
-                    let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
-                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                    alertViewController.addAction(action)
-                    self.present(alertViewController, animated: true, completion: nil)
-                case .pathErr: print("path")
-                case .serverErr: print("serverErr")
-                case .networkFail: print("networkFail") }
-
-            }
+            doLogin()
         }
         logIn.layer.cornerRadius = 20
         idTextField.layer.cornerRadius = 20
@@ -73,28 +112,19 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var signUp: UILabel!
     
     @IBAction func loginButton(_ sender: Any) {
-        guard let inputID = idTextField.text else { return }
-        guard let inputPWD = passwordTextField.text else { return }
+        guard let idid = idTextField.text else{return}
+        guard let pwpw = passwordTextField.text else{return}
         
-        LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
-            switch networkResult {
-            case .success(let token):
-                guard let token = token as? String else { return }
-                UserDefaults.standard.set(token, forKey: "token")
-                guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
-                    "customTabbarController") as? UITabBarController else { return }
-                tabbarController.modalPresentationStyle = .fullScreen
-                self.present(tabbarController, animated: true, completion: nil)
-            case .requestErr(let message):
-                guard let message = message as? String else { return }
-                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                alertViewController.addAction(action)
-                self.present(alertViewController, animated: true, completion: nil)
-            case .pathErr: print("path")
-            case .serverErr: print("serverErr")
-            case .networkFail: print("networkFail") }
+        if checkBox.on{
+            UserDefaults.standard.set(idid,forKey: "id")
+            print(UserDefaults.standard.string(forKey: "id"))
+            UserDefaults.standard.set(pwpw,forKey: "pwd")
         }
+        else{
+            UserDefaults.standard.removeObject(forKey: "id")
+            UserDefaults.standard.removeObject(forKey: "pwd")
+        }
+        doLogin()
         
         
         //        guard let receiveViewController = self.storyboard?.instantiateViewController(identifier:"customTabbarController") as? UITabBarController else{return}
@@ -134,4 +164,5 @@ extension UITextField{
     }
     
 }
+
 
