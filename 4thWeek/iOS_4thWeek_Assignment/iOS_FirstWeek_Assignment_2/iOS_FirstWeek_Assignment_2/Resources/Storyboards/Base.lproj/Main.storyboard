@@ -80,6 +80,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsK-1D-mKp">
+                                <rect key="frame" x="57.5" y="427" width="299" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="DAf-sa-ow8"/>
+                                    <constraint firstAttribute="width" constant="299" id="OHE-fS-7e4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -87,17 +94,20 @@
                             <constraint firstItem="Fef-ER-3LW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="45f-FX-Unj"/>
                             <constraint firstItem="nrJ-k2-chg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="B9M-bY-9kL"/>
                             <constraint firstItem="Fef-ER-3LW" firstAttribute="top" secondItem="nrJ-k2-chg" secondAttribute="bottom" constant="58" id="DVu-ur-psI"/>
+                            <constraint firstItem="vsK-1D-mKp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FoO-4l-mau"/>
                             <constraint firstItem="TU5-U1-Dvg" firstAttribute="top" secondItem="IXg-VC-PBT" secondAttribute="bottom" constant="39" id="LI2-nI-5rl"/>
                             <constraint firstItem="xLT-iU-I8O" firstAttribute="top" secondItem="TU5-U1-Dvg" secondAttribute="bottom" constant="28" id="Rqu-tC-b19"/>
                             <constraint firstItem="nrJ-k2-chg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bNT-h8-7bZ"/>
                             <constraint firstItem="IXg-VC-PBT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dZN-ce-bPj"/>
                             <constraint firstItem="TU5-U1-Dvg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fiM-pD-COA"/>
                             <constraint firstItem="IXg-VC-PBT" firstAttribute="top" secondItem="Fef-ER-3LW" secondAttribute="bottom" constant="18" id="gR7-5l-2af"/>
+                            <constraint firstItem="vsK-1D-mKp" firstAttribute="top" secondItem="IXg-VC-PBT" secondAttribute="bottom" constant="7" id="ve3-Je-RrL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cx6-Et-Z6v"/>
                     <connections>
+                        <outlet property="checkBoxView" destination="vsK-1D-mKp" id="QXl-Qt-61t"/>
                         <outlet property="idTextField" destination="Fef-ER-3LW" id="TfM-dV-1Sm"/>
                         <outlet property="logIn" destination="TU5-U1-Dvg" id="uQW-zb-6zG"/>
                         <outlet property="passwordTextField" destination="IXg-VC-PBT" id="ixy-DH-QWQ"/>

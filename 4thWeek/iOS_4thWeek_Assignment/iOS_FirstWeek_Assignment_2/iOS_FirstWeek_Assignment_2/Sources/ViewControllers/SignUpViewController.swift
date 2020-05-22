@@ -50,9 +50,14 @@ class SignUpViewController: UIViewController {
             switch networkResult {
             case .success:
                 guard let firstViewController = self.storyboard?.instantiateViewController(identifier:
-                    "firstViewController") as? FirstViewController else { return }
+                    "firstViewController") as? FirstViewController else { return
+                }
+                firstViewController.id = inputID
+                firstViewController.pwd = inputPWD
+                firstViewController.flag = true
                 firstViewController.modalPresentationStyle = .fullScreen
                 self.present(firstViewController, animated: true, completion: nil)
+                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "회원가입 실패", message: message, preferredStyle: .alert)

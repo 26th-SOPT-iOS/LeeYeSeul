@@ -15,8 +15,7 @@ class LogOutViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    var id:String?
-    var pw:String?
+ 
    
     /*
     // MARK: - Navigation

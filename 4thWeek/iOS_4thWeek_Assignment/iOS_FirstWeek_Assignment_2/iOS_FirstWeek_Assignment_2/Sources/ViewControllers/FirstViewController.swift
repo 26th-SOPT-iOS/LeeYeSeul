@@ -7,12 +7,49 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class FirstViewController: UIViewController {
+    var id:String?
+    var pwd:String?
+    var flag:Bool = false
+    @IBOutlet weak var checkBoxView: UIView!
+    let checkBox = BEMCheckBox.init(frame: CGRect.init(x: 30, y: 200, width: 20, height: 10))
     
+    
+    
+    private func setTextfield(){
+        idTextField.text = id
+        passwordTextField.text = pwd
+    }
     @IBOutlet weak var logIn: UIButton! //로그인버튼 outlet
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (flag==true){
+            setTextfield()
+            guard let inputID = idTextField.text else { return }
+            guard let inputPWD = passwordTextField.text else { return }
+            LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+                switch networkResult {
+                case .success(let token):
+                    guard let token = token as? String else { return }
+                    UserDefaults.standard.set(token, forKey: "token")
+                    guard let tabbarController = self.storyboard?.instantiateViewController(identifier:
+                        "customTabbarController") as? UITabBarController else { return }
+                    tabbarController.modalPresentationStyle = .fullScreen
+                    self.present(tabbarController, animated: true, completion: nil)
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail") }
+
+            }
+        }
         logIn.layer.cornerRadius = 20
         idTextField.layer.cornerRadius = 20
         passwordTextField.layer.cornerRadius = 20
@@ -38,6 +75,7 @@ class FirstViewController: UIViewController {
     @IBAction func loginButton(_ sender: Any) {
         guard let inputID = idTextField.text else { return }
         guard let inputPWD = passwordTextField.text else { return }
+        
         LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
             switch networkResult {
             case .success(let token):
@@ -86,6 +124,7 @@ class FirstViewController: UIViewController {
      */
     
 }
+    
 extension UITextField{
     func addLeftPadding() {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 17, height: self.frame.height))
@@ -95,3 +134,4 @@ extension UITextField{
     }
     
 }
+
