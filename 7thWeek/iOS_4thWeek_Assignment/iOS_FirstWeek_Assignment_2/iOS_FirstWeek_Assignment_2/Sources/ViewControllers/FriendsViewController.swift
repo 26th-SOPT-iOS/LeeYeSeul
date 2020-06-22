@@ -52,6 +52,7 @@ class FriendsViewController: UIViewController {
                 let image = UIImageView()
                 image.setImage(from: profileData.image) { image in
                     guard let profileCell = self.friendsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FriendsCell else { return }
+                    //프사 둥글게 꽉차게
                     profileCell.profileImageView.layer.cornerRadius = profileCell.profileImageView.bounds.width/2
                     profileCell.profileImageView.contentMode = .scaleAspectFill
                     DispatchQueue.main.async {
