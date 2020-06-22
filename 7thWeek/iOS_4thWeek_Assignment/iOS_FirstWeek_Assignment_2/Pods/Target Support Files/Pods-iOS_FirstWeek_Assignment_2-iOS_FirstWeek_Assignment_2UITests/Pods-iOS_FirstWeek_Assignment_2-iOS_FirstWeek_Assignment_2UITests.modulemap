@@ -1,0 +1,6 @@
+framework module Pods_iOS_FirstWeek_Assignment_2_iOS_FirstWeek_Assignment_2UITests {
+  umbrella header "Pods-iOS_FirstWeek_Assignment_2-iOS_FirstWeek_Assignment_2UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -83,6 +83,7 @@ extension FriendsViewController : UITableViewDataSource{
             headerLabel.frame = CGRect(x: 16, y:3, width: 50, height: 17)
             headerLabel.text = "친구 \(friendsData[1].count)"
             headerLabel.font = UIFont.systemFont(ofSize: CGFloat(11))
+            
             headerLabel.textColor = UIColor.lightGray
             //headerLabel.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 5).isActive = true
             let headerView = UIView()
